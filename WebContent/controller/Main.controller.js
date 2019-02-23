@@ -59,6 +59,18 @@ sap.ui.define( [
         standartSelect: function( oE ) {
             oE.getSource().setValueState( "None" );
         },
+        birthdayDatePicker:function (oE) {
+            var sBirthday = oE.getSource().getProperty('dateValue')
+            var oToday = new Date();
+            var thisYear = 0;
+            if (oToday.getMonth() < sBirthday.getMonth()) {
+                thisYear = 1;
+            } else if ((oToday.getMonth() == sBirthday.getMonth()) && oToday.getDate() < sBirthday.getDate()) {
+                thisYear = 1;
+            }
+            var nAge = oToday.getFullYear() - sBirthday.getFullYear() - thisYear;
+            this.getView().getModel( "mData" ).setProperty( "/profile/age", nAge );
+        },
         handlePreviousStep: function() {
             var sStep = this.getView().getModel( "mView" ).getProperty( "/sStep" );
             switch ( sStep ) {
@@ -76,7 +88,10 @@ sap.ui.define( [
             var oBundle = this.getView().getModel( 'i18n' ).getResourceBundle();
             var sStep = this.getView().getModel( "mView" ).getProperty( "/sStep" );
             var aProfileInput = [ "idFirstInput", "idLastInput" ];
-            var aDocInput = [ "idPassSerInput", "idPassNumInput", "idPassDepartmentInput" ];
+            var sDocType = this.getView().getModel("mView").getProperty("/sDocType");
+            var aDocInput = sDocType === "pass"
+                    ? [ "idPassSerInput", "idPassNumInput", "idPassDepartmentInput" ]
+                    : [ "idPassSerInput", "idPassNumInput" ];
             var bError = false;
             switch ( sStep ) {
                 case "profile":
@@ -151,20 +166,23 @@ sap.ui.define( [
             this.getView().getModel("mData").setProperty("/edu", aEducation);
         },
         handlePrint:function (oE) {
-            setTimeout(function () {
             var oBundle = this.getView().getModel( 'i18n' ).getResourceBundle();
-            var filename = oBundle.getText('PRINT_FILENAME');
-            var element = document.getElementById( this.getView().getId() + "--table" );//document.getElementById("__xmlview2--idDetailPage-cont");
-            var elementClone = element.cloneNode( true);
-            var elementParent = element.parent;
+            MessageToast.show(oBundle.getText('PRINT_LOADING'), {
+                duration: 8000
+            });
+            setTimeout(function () {
+                var filename = oBundle.getText('PRINT_FILENAME');
+                var element = document.getElementById( this.getView().getId() + "--table" );//document.getElementById("__xmlview2--idDetailPage-cont");
+                var elementClone = element.cloneNode( true);
+                var elementParent = element.parent;
 
-            html2pdf().from(elementClone.firstChild).set({
-                margin:       [0, 0, 0, 1],
-                filename:     filename + ".pdf",
-                image:        { type: "png", quality: 0.98 },
-                html2canvas:  { allowTaint: false, foreignObjectRendering: false, useCORS: false, imageTimeout: 0 },
-                jsPDF:        { unit: "in", format: "b4", orientation: "portrait" }
-            }).save();
+                html2pdf().from(elementClone.firstChild).set({
+                    margin:       [0, 0, 0, 1],
+                    filename:     filename + ".pdf",
+                    image:        { type: "png", quality: 0.98 },
+                    html2canvas:  { allowTaint: false, foreignObjectRendering: false, useCORS: false, imageTimeout: 0 },
+                    jsPDF:        { unit: "in", format: "b4", orientation: "portrait" }
+                }).save();
             }.bind(this), 1000);
 
         }

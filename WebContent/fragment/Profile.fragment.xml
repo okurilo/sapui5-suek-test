@@ -44,6 +44,25 @@
             <Label 
              class="font-grey" 
              textAlign="End" 
+             text="{i18n>BIRTHDATE}" />
+            <DatePicker
+                width="100%"
+                class="font-size_tiny" 
+                change="birthdayDatePicker"
+                placeholder="Выберите дату"
+                value="{
+                    path: 'mData>/profile/birthday',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {
+                        pattern: 'dd.MM.yyyy'
+                        }
+                    }" >
+                </DatePicker>    
+        </VBox>
+        <VBox class="sapUiTinyMarginTop" width="50%" >
+            <Label 
+             class="font-grey" 
+             textAlign="End" 
              text="{i18n>AGE}" />
             <Input type="Number" enabled="false"
              value="{mData>/profile/age}" />

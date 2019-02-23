@@ -1,14 +1,15 @@
 {
     "profile": {
-        "last": "111",
-        "first": "dsd",
+        "last": "",
+        "first": "",
         "patronymic": "",
-        "age": 34
+        "birthday": null,
+        "age": 0
     },
     "doc": {
-        "ser": "121212",
-        "num": "ssss",
-        "department": "ee",
+        "ser": "",
+        "num": "",
+        "department": "",
         "issue_date": "",
         "unit_code": ""
     },
