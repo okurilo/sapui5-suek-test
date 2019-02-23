@@ -1,0 +1,175 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:l="sap.ui.layout"
+ xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <VBox alignItems="Start" class="sapUiSmallMarginEnd" >
+        <Button text="{i18n>BTN_ADD}" press=".handleAddEducation" ></Button>        
+    </VBox>
+    <VBox
+     backgroundDesign="Solid"
+     height="100%"
+     items="{mData>/edu}">
+        <HBox>
+            <VBox class="border-bottom sapUiTinyMarginBottom">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>EDUCATION}"
+                    width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey ">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Select width="100%" class="" selectedKey="{mData>education}" >
+                        <layoutData>
+                            <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                        </layoutData>
+                        <items>
+                            <core:Item text="{i18n>EDUCATION_BASE}" key="B" />
+                            <core:Item text="{i18n>EDUCATION_ADDITIONAL}" key="ADD" />
+                        </items>
+                    </Select>
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>NAME_EDUCATION}"
+                        width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey ">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>nameEducation}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>PROFESSION}"
+                        textAlign="End"
+                        width="100%"
+                        class="font-size_tiny font-grey">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>profession}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox> 
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>NAME_FORM}"
+                        textAlign="End"
+                        width="100%"
+                        class="font-size_tiny font-grey">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>nameForm}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>QUALIFICATION}"
+                    width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey ">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>qualification}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTop" >
+                    <Text text="{i18n>NUM_DIPLOM}"
+                    width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey ">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>numDiplom}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTopBottom" >
+                    <Text text="{i18n>DATE_END}"
+                        width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey ">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <DatePicker
+                    width="100%"
+                    class="font-size_tiny" 
+                    change="standartDatePicker"
+                    placeholder="Выберите дату"
+                    value="{
+                        path: 'mData>dateEnd',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            pattern: 'dd.MM.yyyy'
+                            }
+                        }" >
+                        <layoutData>
+                            <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                        </layoutData>
+                    </DatePicker>                        
+                </HBox>
+                <HBox
+                 alignItems=""
+                 class="sapUiTinyMarginTopBottom" >
+                    <Text text="{i18n>THESIS}"
+                        width="100%"
+                        textAlign="End"
+                        class="font-size_tiny font-grey sapUiTinyMarginTop">
+                        <layoutData>
+                           <FlexItemData baseSize="20%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Text>
+                    <Input value="{mData>thesis}" class="font-size_tiny ">
+                        <layoutData>
+                           <FlexItemData baseSize="80%" styleClass="sapUiSmallMarginEnd" />
+                       </layoutData>
+                    </Input>
+                </HBox>
+            </VBox>
+            <!-- <VBox alignItems="End" class="sapUiSmallMarginEnd" > -->
+                <Button class="sapUiTinyMargin" icon="sap-icon://sys-cancel" press=".handleDeleteEducation" ></Button>        
+            <!-- </VBox> -->
+        </HBox>
+    </VBox>
+ </core:FragmentDefinition>

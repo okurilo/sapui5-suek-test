@@ -1,0 +1,17 @@
+html.sapUiTheme-sap_belize {
+  font-size: 14px;
+}
+.border-right {
+    border-right: 1px solid rgb(221, 221, 221, 0.4);
+}
+.border-top {
+    border-top: 1px solid rgb(221, 221, 221, 0.4);
+}
+.border-bottom {
+    border-bottom: 2px solid rgb(221, 221, 221)
+}
+
+/* Main page */
+.step-select_header .sapMITBHead {
+    pointer-events: none;
+}

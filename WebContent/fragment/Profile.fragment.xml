@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:l="sap.ui.layout"
+ xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <VBox class="" width="100%" >
+        <VBox class="sapUiTinyMarginTop" width="50%" >
+            <Label 
+             class="font-grey" 
+             required="true" 
+             textAlign="End" 
+             text="{i18n>LAST_NAME}" />
+            <Input 
+             value="{mData>/profile/last}"
+             liveChange="standartSelect"
+             id="idLastInput"
+             width="100%" 
+            >
+            </Input>
+        </VBox>
+        <VBox class="sapUiTinyMarginTop" width="50%" >
+            <Label 
+             class="font-grey" 
+             required="true" 
+             textAlign="End" 
+             text="{i18n>FIRST_NAME}" />
+            <Input 
+             value="{mData>/profile/first}"
+             liveChange="standartSelect"
+             id="idFirstInput" />
+        </VBox>
+        <VBox class="sapUiTinyMarginTop" width="50%" >
+            <Label 
+             class="font-grey" 
+             textAlign="End" 
+             text="{i18n>PATRONYMIC}" />
+            <Input 
+             width="100%" 
+             value="{mData>/profile/patronymic}"
+            >
+            </Input>
+        </VBox>
+        <VBox class="sapUiTinyMarginTop" width="50%" >
+            <Label 
+             class="font-grey" 
+             textAlign="End" 
+             text="{i18n>AGE}" />
+            <Input type="Number" enabled="false"
+             value="{mData>/profile/age}" />
+        </VBox>
+    </VBox>
+ </core:FragmentDefinition>

@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:l="sap.ui.layout"
+ xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+ xmlns:f="sap.ui.layout.form">
+	<VBox>
+			<f:SimpleForm
+			editable="false"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="4"
+			labelSpanL="2"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2">
+			<f:content>
+				<core:Title text="{i18n>PROCESS_STEP_PROFILE}" />
+				<Label text="{i18n>LAST_NAME}" />
+				<Text text="{mData>/profile/last}" />
+				<Label text="{i18n>FIRST_NAME}" />
+				<Text text="{mData>/profile/first}" />
+				<Label text="{i18n>PATRONYMIC}" />
+				<Text text="{mData>/profile/patronymic}" />
+				<Label text="{i18n>AGE}" />
+				<Text text="{mData>/profile/age}" />
+
+				<core:Title text="{= ${mView>/sDocType} === 'pass' ? ${i18n>DOC_PASS} : ${i18n>DOC_DRIVERS} }" />
+				<Label text="{i18n>SER}" />
+				<Text text="{mData>/doc/ser}" />
+				<Label text="{i18n>NUM}" />
+				<Text text="{mData>/doc/num}" />
+				<Label text="{i18n>DEPARTMENT}" />
+				<Text text="{mData>/doc/department}" />
+				<Label text="{i18n>ISSUE_DATE}" />
+				<Text text="{mData>/doc/issue_date}" />
+				<Label text="{i18n>UNIT_CODE}" />
+				<Text text="{mData>/doc/unit_code}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

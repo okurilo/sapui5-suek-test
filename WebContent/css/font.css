@@ -1,0 +1,44 @@
+.font-bold {
+	font-weight: bold;
+}
+.font-italic {
+	font-style: italic;
+}
+
+.font-size_l {
+	font-size: 18px !important;
+}
+.font-size_s {
+	font-size: 12px !important;
+}
+.font-size_xs {
+	font-size: 10px !important;
+}
+
+.font-muted {
+	color: #999 !important;
+}
+.font-grey {
+	color: #666666 !important;
+}
+.font-green {
+	color: #008A11 !important;
+}
+.font-light-grey {
+	color: #999999 !important;
+}
+.font-blue {
+	color: #004990 !important;
+}
+.font-light-blue {
+	color: #346187 !important;
+}
+.font-violet {
+	color: #7a72a1 !important;
+}
+.font-white {
+	color: #ffffff !important;
+}
+.font-opacity_medium {
+	opacity: 0.75;
+}

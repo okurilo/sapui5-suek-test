@@ -1,0 +1,124 @@
+<core:FragmentDefinition
+ xmlns="sap.m"
+ xmlns:core="sap.ui.core"
+ xmlns:l="sap.ui.layout"
+ xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <VBox
+     class=""
+     width="100%">
+        <VBox
+         class="sapUiTinyMarginTop"
+         width="100%">
+            <Label
+             text="{i18n>DOCTYPE}" />
+            <Select
+             selectedKey="{mView>/sDocType}"
+             width="100%">
+                <items>
+                    <core:Item key="pass" text="{i18n>DOC_PASS}" />
+                    <core:Item key="drivers" text="{i18n>DOC_DRIVERS}" />
+                </items>
+            </Select>
+        </VBox>
+        <VBox
+         visible="{= ${mView>/sDocType} === 'pass' }">
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 required="true"
+                 textAlign="End"
+                 text="{i18n>SER}" />
+                <Input
+                 value="{mData>/doc/ser}"
+                 width="100%"
+                 id="idPassSerInput"
+                 liveChange="standartSelect">
+                </Input>
+            </VBox>
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 required="true"
+                 textAlign="End"
+                 text="{i18n>NUM}" />
+                <Input
+                 value="{mData>/doc/num}"
+                 id="idPassNumInput"
+                 liveChange="standartSelect" />
+            </VBox>
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 required="true"
+                 textAlign="End"
+                 text="{i18n>DEPARTMENT}" />
+                <Input
+                 value="{mData>/doc/department}"
+                 id="idPassDepartmentInput"
+                 liveChange="standartSelect"
+                 width="100%">
+                </Input>
+            </VBox>
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 textAlign="End"
+                 text="{i18n>ISSUE_DATE}" />
+                <Input
+                 value="{mData>/doc/issue_date}"
+                 width="100%">
+                </Input>
+            </VBox>
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 textAlign="End"
+                 text="{i18n>UNIT_CODE}" />
+                <Input
+                 value="{mData>/doc/unit_code}" />
+            </VBox>
+        </VBox>
+        <VBox
+         visible="{= ${mView>/sDocType} === 'drivers' }">
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 required="true"
+                 textAlign="End"
+                 text="{i18n>SER}" />
+                <Input
+                 value="{mData>/doc/ser}"
+                 id="idDriversSerInput"
+                 liveChange="standartSelect"
+                 width="100%">
+                </Input>
+            </VBox>
+            <VBox
+             class="sapUiTinyMarginTop"
+             width="50%">
+                <Label
+                 class="font-grey"
+                 required="true"
+                 textAlign="End"
+                 text="{i18n>NUM}" />
+                <Input
+                 value="{mData>/doc/num}"
+                 id="idDriversNumInput"
+                 liveChange="standartSelect" />
+            </VBox>
+        </VBox>
+
+    </VBox>
+</core:FragmentDefinition>
